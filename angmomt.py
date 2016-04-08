@@ -42,11 +42,12 @@ mode_keys_dict = {'1.5_138':['g1', 'g2', 'p1', 'p2', 'g3'],
     '1.5_140':['g1', 'p1', 'p2', 'g2'],
     '1.24_122':['g1', 'g2', 'p1', 'p2', 'g3', 'g4', 'g5', 'p3', 'g6']}
 
-data_fnames = {'mesa':'data{}/profile{}.data'.format(mass, prof),
-    'model':'data{}/model_data{}.txt'.format(mass, prof)}
+data_fnames = {'mesa':'data{}/profiles/profile{}.data'.format(mass, prof),
+    'model':'data{}/model_data/model_data{}.txt'.format(mass, prof)}
 
 for mode in mode_nums[mass_prof]:
-  data_fnames[mode] = 'data{}/summary_l1_prof{}_00{}.txt'.format(mass, prof, mode_nums[mass_prof][mode])
+  data_fnames[mode] = 'data{}/prof{}/summary_l1_prof{}_00{}.txt'.format(mass, 
+      prof, prof, mode_nums[mass_prof][mode])
 
 '''data_fnames = {'mesa':'data/profile' + prof + '.data',
     'g1':'data/summary_l1_prof140_00415.txt',
@@ -177,7 +178,8 @@ for key in omega_keys:
   else:
     outstring += outdata(key, x, m, r, [data[mode_key]['ReK'] for mode_key in mode_keys], [head_data[mode_key]['Rebeta'] for mode_key in mode_keys], arr=True, org_omega=omegas[key])
 
-with open('data' + mass + '/prof' + prof + '_splittings_' + outfile_names[prof_type] + '.txt','w') as f:
+with open('data{}/prof{}/prof{}_splittings_{}.txt'.format(mass, prof, prof, 
+  outfile_names[prof_type]),'w') as f:
   if prof_type == 'poly':
     f.write('ratio angmom ' + ' '.join(mode_keys) + ' r_in alpha\n')
   else:

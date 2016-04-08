@@ -18,7 +18,7 @@ lin = np.linspace(0, 1e-6, 100)
 mode_ratio = {'1.24_122':1.7, '1.5_138':1.5, '1.5_140':1.35}
 
 data = fimport.load_array('data{}/find_omega_{}_{}_{}_{}.txt'.format(mass, prof, prof_type, p, g), 1)
-data_mesa = fimport.load_array('data{}/profile{}.data'.format(mass, prof), 6)
+data_mesa = fimport.load_array('data{}/profiles/profile{}.data'.format(mass, prof), 6)
 radius = data_mesa['radius'][0] * c.rsun
 
 g_vals = np.unique(data[g])
@@ -56,4 +56,4 @@ plt.xlabel(p)
 plt.ylabel(g)
 plt.title(prof + ' ' + prof_type)
 
-plt.savefig('data{}/find_omega_ve_{}_{}_{}_{}.pdf'.format(mass, prof, prof_type, p, g))
+plt.savefig('data{}/plots/find_omega_ve_{}_{}_{}_{}.pdf'.format(mass, prof, prof_type, p, g))

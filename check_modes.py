@@ -11,7 +11,8 @@ if len(sys.argv) != 3:
 prof = sys.argv[1]
 mass = sys.argv[2]
 
-modes = fimport.load_array("data{}/summary_l1_prof{}.txt".format(mass, prof), 6)
+modes = fimport.load_array("data{0}/prof{1}/summary_l1_prof{1}.txt".format(mass, 
+  prof), 6)
 
 winding = modes['n_p'] - modes['n_g']
 

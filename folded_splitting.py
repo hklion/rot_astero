@@ -39,15 +39,15 @@ vel_e_all = {'1.24':np.linspace(2, 8, 5),
 
 prof_obs = {'1.24':'122', '1.5':'138', '1.33':'124'}
 
-data_fnames = {'mesa':'data{}/profile{}.data'.format(mass, prof),
-    'mesa_obs':'data{}/profile{}.data'.format(strip_txt(mass), 
+data_fnames = {'mesa':'data{}/profiles/profile{}.data'.format(mass, prof),
+    'mesa_obs':'data{}/profiles/profile{}.data'.format(strip_txt(mass), 
       prof_obs[str(strip_txt(mass))]),
-    'model':'data{}/model_data{}.txt'.format(mass, prof)}
+    'model':'data{}/model_data/model_data{}.txt'.format(mass, prof)}
 
 prof_types = ['step', 'power law', '0.02R$_*$ step', 'conv step', 'core diff']
 
 for mode in mode_nums[mass_prof]:
-  data_fnames[mode] = 'data{}/summary_l1_prof{}_0{}.txt'.format(mass, prof, mode_nums[mass_prof][mode])
+  data_fnames[mode] = 'data{0}/prof{1}/summary_l1_prof{1}_0{2}.txt'.format(mass, prof, mode_nums[mass_prof][mode])
 
 mode_keys = mode_nums[mass_prof].keys()
 mode_keys.sort()
@@ -148,7 +148,7 @@ for ratio in ratios:
 
   plt.legend(loc = 4)
   plt.title('mass {}, profile {}, ratio {}'.format(mass, prof, to_plot[0][0]))
-  plt.savefig('data{}/folded_splitting_{}_r{}.pdf'.format(mass, prof, np.around(ratio,2)))
+  plt.savefig('data{}/plots/folded_splitting_{}_r{}.pdf'.format(mass, prof, np.around(ratio,2)))
   plt.clf()
 
   plt.axvline(numax, c='k',linestyle=":", label=r'$\nu_\mathrm{max}$')
@@ -164,5 +164,5 @@ for ratio in ratios:
   plt.xlim(numax - 4 * large_sep, numax + 4 * large_sep)
   plt.legend(loc=4,ncol=2,fontsize=12)
   plt.title('mass {}, profile {}, ratio {}'.format(mass, prof, to_plot[0][0]))
-  plt.savefig('data{}/splitting_{}_r{}.pdf'.format(mass, prof, np.around(ratio,2)))
+  plt.savefig('data{}/plots/splitting_{}_r{}.pdf'.format(mass, prof, np.around(ratio,2)))
   plt.clf()

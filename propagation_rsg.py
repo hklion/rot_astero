@@ -17,13 +17,13 @@ mass = sys.argv[2]
 delta = 0.1
 c.rsun = 6.96e10
 
-mesa = fimport.load_array("data{}/profile{}.data".format(mass, prof), 6)
+mesa = fimport.load_array("data{}/profiles/profile{}.data".format(mass, prof), 6)
 mesa = np.flipud(mesa)
 #l0 = np.loadtxt("summary_l0_prof" + str(prof) + ".txt", skiprows=0)
 #l1 = np.loadtxt("summary_l1_prof" + str(prof) + ".txt", skiprows=0)
 #l2 = np.loadtxt("summary_l2_prof" + str(prof) + ".txt", skiprows=0)
 #l3 = np.loadtxt("summary_l3_prof" + str(prof) + ".txt", skiprows=0)
-head = fimport.load_header("data{}/profile{}.data".format(mass, prof), 2)
+head = fimport.load_header("data{}/profiles/profile{}.data".format(mass, prof), 2)
 
 r = 10. ** mesa['logR']
 brunt = np.sqrt(mesa['brunt_N2']) * 1e6
@@ -49,7 +49,7 @@ plt.ylabel("Frequency [$\mu$ Hz]")
 
 plt.title('{} M$_\odot$, profile {}'.format(mass, prof))
 
-plt.savefig("data{}/propagation_{}.pdf".format(mass, prof))
+plt.savefig("data{}/plots/propagation_{}.pdf".format(mass, prof))
 
 exit()
 

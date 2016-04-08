@@ -13,9 +13,11 @@ if __name__ == "__main__":
   prof = sys.argv[1]
   mass = sys.argv[2]
 
-  data = fimport.load_array('data{}/profile{}.data'.format(mass, prof), 6)
+  data = fimport.load_array('data{0}/profiles/profile{1}.data'.format(mass, prof),
+      6)
   data = np.flipud(data)
-  head_data = fimport.load_header('data{}/profile{}.data'.format(mass, prof), 2)
+  head_data = fimport.load_header('data{0}/profiles/profile{1}.data'.format(mass,
+    prof), 2)
 
   print 'large sep',large_sep(data)
   print 'numax', numax(data, head_data)

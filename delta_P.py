@@ -6,7 +6,8 @@ import sys
 prof = sys.argv[1]
 mass = sys.argv[2]
 
-data = fimport.load_array('data{}/summary_l1_prof{}.txt'.format(mass, prof), 6)
+data = fimport.load_array('data{0}/prof{1}/summary_l1_prof{1}.txt'.format(mass, 
+  prof), 6)
 colors = ['m', 'c', 'green', 'orange', 'red', 'k']
 
 mode_freqs = []
@@ -42,4 +43,4 @@ plt.xlim([numax - 70, numax + 70])
 plt.xlabel(r'$\nu$ [$\mu$Hz]')
 plt.ylabel('$\Delta$ P [s]')
 
-plt.savefig('delta_P{}_{}.pdf'.format(prof, mass))
+plt.savefig('data{0}/plots/delta_P_{1}.pdf'.format(mass, prof))

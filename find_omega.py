@@ -37,7 +37,7 @@ for g_val in g_vals:
     #measured_pairs.append({g:g_val, p:p_val})
     measured_pairs.append({g:g_val, p:p_val})
 
-data_fnames = {'mesa':'data{}/profile{}.data'.format(mass, prof),
+data_fnames = {'mesa':'data{}/profiles/profile{}.data'.format(mass, prof),
     'step':'data{}/prof{}_splittings_hestep.txt'.format(mass, prof),
     #'0.02step': 'data{}/prof{}_splittings_step_0.02.txt'.format(mass, prof),
     #'0.001step': 'data{}/prof{}_splittings_step_0.001.txt'.format(mass, prof),

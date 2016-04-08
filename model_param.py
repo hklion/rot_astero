@@ -17,7 +17,7 @@ prof = sys.argv[1]
 mass = sys.argv[2]
 mass_prof = '{}_{}'.format(mass, prof)
 
-data = fimport.load_array('data{}/profile{}.data'.format(mass, prof), 6)
+data = fimport.load_array('data{}/profiles/profile{}.data'.format(mass, prof), 6)
 max_g_data = fimport.load_array('g_max.txt', 1)
 
 # he4 - find where drops below 99% of central fraction
@@ -31,6 +31,6 @@ max_g = max_g_data[np.where(max_g_data['mass'] == strip_txt(mass))]['g_max']
 print str(max_g_data['mass'])
 print max_g
 
-with open('data{}/model_data{}.txt'.format(mass, prof),'w') as f:
+with open('data{}/model_data/model_data{}.txt'.format(mass, prof),'w') as f:
   f.write('he_core h_burn conv g_max\n')
   f.write('{} {} {} {}'.format(r_he_core, r_h_burn, r_conv, max_g[0]))

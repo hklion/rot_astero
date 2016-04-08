@@ -47,11 +47,12 @@ mode_nums = {'1.5_138':{'g1':'0330', 'g2':'0331', 'p1':'0332', 'p2':'0333',
     '1.33_122':label_gen(210,240),
     '1.24_148':{label:'{}'.format(mode) for (label, mode) in ((str(mode_str('1.24_148', i)), i) for i in range(1400, 1406))}} # 1360, 1470
 
-data_fnames = {'mesa':'data{}/profile{}.data'.format(mass, prof),
-    'model':'data{}/model_data{}.txt'.format(mass, prof)}
+data_fnames = {'mesa':'data{}/profiles/profile{}.data'.format(mass, prof),
+    'model':'data{}/model_data/model_data{}.txt'.format(mass, prof)}
 
 for mode in mode_nums[mass_prof]:
-  data_fnames[mode] = 'data{}/summary_l1_prof{}_0{}.txt'.format(mass, prof, mode_nums[mass_prof][mode])
+  data_fnames[mode] = 'data{0}/prof{1}/summary_l1_prof{1}_0{2}.txt'.format(mass,
+      prof, mode_nums[mass_prof][mode])
 
 '''data_fnames = {'mesa':"data/profile" + prof + ".data",
     'g1':"data/summary_l1_prof150_00500.txt",
@@ -145,7 +146,7 @@ plt.ylim([1e-7,1e-4])
 
 plt.legend(handles=[g_line, p_line, step_line, diff_line, conv_patch, eps_patch, g_patch, p_patch], fontsize=9.5, loc=(0.015, 0.63))
 
-plt.savefig('data{}/omega_prof_{}.pdf'.format(mass, prof))
+plt.savefig('data{}/plots/omega_prof_{}.pdf'.format(mass, prof))
 
 ax2 = ax1.twinx()
 for (i, key) in enumerate(mode_keys):
