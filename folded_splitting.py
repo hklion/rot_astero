@@ -162,7 +162,7 @@ for ratio in ratios:
         label="measured", linewidth=1, c=colors[-2], linestyle='-', marker='.')
   plt.ylim(0.20, 1.0)
   plt.xlim(numax - 4 * large_sep, numax + 4 * large_sep)
-  plt.legend(loc=4,ncol=2,fontsize=12)
+  plt.legend(loc=3,ncol=2,fontsize=12)
   plt.title('mass {}, profile {}, ratio {}'.format(mass, prof, to_plot[0][0]))
   plt.savefig('data{}/plots/splitting_{}_r{}.pdf'.format(mass, prof, np.around(ratio,2)))
   plt.clf()
